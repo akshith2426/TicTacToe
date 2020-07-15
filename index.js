@@ -24,7 +24,7 @@ for (let i = 0; i < cells.length; i++) {
 		if (CheckWinStatus(alpha) == 0 || CheckWinStatus(beta) == 0) {
 			winstate.textContent = 'Match Is A Draw';
 			info.textContent = '';
-			setTimeout(reset, 3000);
+			setTimeout(reset, 2000);
 		}
 		counter++;
 	});
