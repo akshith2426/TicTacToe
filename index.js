@@ -2,33 +2,34 @@ var info = document.getElementById('info');
 var cells = document.querySelectorAll('.row > div');
 var winstate = document.getElementById('winstate');
 var resetbtn = document.getElementById('resetbtn');
-
 var alpha = 'X';
 var beta = 'O';
 var click = 0;
 var counter = 1;
 for (let i = 0; i < cells.length; i++) {
 	cells[i].addEventListener('click', function() {
-		if (click == 0) {
+		if (click == 0 && cells[i].innerHTML === '') {
 			cells[i].innerHTML = 'X';
 			click = 1;
+			counter++;
 			info.innerHTML = "It's Player2 Turn";
-		} else if (click == 1) {
+		} else if (click == 1 && cells[i].innerHTML === '') {
 			cells[i].innerHTML = 'O';
 			click = 0;
 			info.textContent = "It's Player1 Turn";
+			counter++;
 		}
 		if (CheckWinStatus(alpha) || CheckWinStatus(beta)) {
 			setTimeout(reset, 2000);
 		}
-		if (CheckWinStatus(alpha) == 0 || CheckWinStatus(beta) == 0) {
+		if (CheckWinStatus(alpha) == 0 && CheckWinStatus(beta) == 0) {
 			winstate.textContent = 'Match Is A Draw';
 			info.textContent = '';
 			setTimeout(reset, 2000);
 		}
-		counter++;
 	});
 }
+
 function CheckWinStatus(text) {
 	let top1 = cells[0].innerHTML;
 	let top2 = cells[1].innerHTML;
