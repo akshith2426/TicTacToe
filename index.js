@@ -6,6 +6,7 @@ var alpha = 'X';
 var beta = 'O';
 var click = 0;
 var counter = 1;
+/*this tells us about the clicking of the cells and interchanges X and O choice and tells us about which player's turn*/
 for (let i = 0; i < cells.length; i++) {
 	cells[i].addEventListener('click', function() {
 		if (click == 0 && cells[i].innerHTML === '') {
@@ -29,7 +30,7 @@ for (let i = 0; i < cells.length; i++) {
 		}
 	});
 }
-
+/*this function checks the winning combinations and return us whether the playes has won or not*/
 function CheckWinStatus(text) {
 	let top1 = cells[0].innerHTML;
 	let top2 = cells[1].innerHTML;
@@ -102,6 +103,7 @@ function CheckWinStatus(text) {
 		}
 	}
 }
+/*this function resets the whole game after the game is over */
 resetbtn.addEventListener('click', reset);
 function reset() {
 	for (var i = 0; i < 9; i++) {
